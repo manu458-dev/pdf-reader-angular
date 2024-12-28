@@ -19,6 +19,10 @@
         👉SEE BASE 64(console.log)
     </button> <br>
 
+    <button *ngIf="pdfIsUploaded" (click)="toogleHTMLDisplay()">
+        👉TOOGLE SEE DATA IN HTML (below)
+    </button> <br>
+
     <button *ngIf="pdfIsUploaded" (click)="parseB64toPDF()">
         👉UPLOAD PDF to iframe
     </button> <br>
@@ -26,4 +30,33 @@
     <button *ngIf="pdfIsUploaded" (click)="clearPDF()">
         👉Clear variables (data)
     </button>
+</div>
+
+
+<div class="bg-emerald-300 w-11/12 mx-auto" *ngIf="displayHTMLData">
+    <div *ngIf="pdfData != ''" class="break-words whitespace-pre-wrap">
+        <h1 class="text-black text-3xl font-bold text-center">
+            THIS IS THE PDF DATA
+        </h1>
+        <ul class="list-none pl-5">
+            <li><strong>File name:</strong> {{ pdfData.name }}</li>
+            <li><strong>Size:</strong> {{ pdfData.size }} bytes</li>
+            <li><strong>Type:</strong> {{ pdfData.type }}</li>
+            <li><strong>Last Modified:</strong> {{ pdfData.lastModified}}</li>
+          </ul>
+    </div >
+
+    <div *ngIf="base64PDF != ''" class="break-words whitespace-pre-wrap">
+        <h1 class="text-black text-3xl font-bold text-center">
+            THIS IS THE BASE64
+        </h1>
+        <p>{{base64PDF}}</p>
+    </div>
+
+    <div *ngIf="atobB64PDF != undefined" class="break-words whitespace-pre-wrap">
+        <h1 class="text-black text-3xl font-bold text-center">
+            THIS IS ATOB
+        </h1>
+        <p>{{atobB64PDF}}</p>
+    </div>
 </div>

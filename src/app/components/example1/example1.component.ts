@@ -11,7 +11,8 @@ import { ViewChild, ElementRef } from '@angular/core';
   styleUrl: './example1.component.css'
 })
 export class Example1Component {
-  pdfIsUploaded: Boolean = false;
+  pdfIsUploaded: boolean = false;
+  displayHTMLData: boolean = false;
 
   base64PDF: string = ""; //ONLY BASE64 DATA 
   atobB64PDF!: string; //This one adds the necesary metadata for the iframe (this one is actually the one iframe uses)
@@ -74,6 +75,10 @@ export class Example1Component {
     }
   }
 
+  toogleHTMLDisplay(){
+    this.displayHTMLData = !this.displayHTMLData;
+  }
+  
   clearPDF() {
     this.pdfIsUploaded = false;
     
