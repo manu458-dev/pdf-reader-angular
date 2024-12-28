@@ -1,0 +1,15 @@
+<input type="file" accept=".pdf" />
+
+<div class="bg-slate-600 p-10 text-center text-white">
+    <h1 class="font-bold text-2xl">
+        FILE UPLOADED
+    </h1>
+
+    <p *ngIf="base64PDF ==''">
+        Sube un fichero PDF
+    </p>
+
+    <div *ngIf="base64PDF == ''" class="">
+        <iframe #iframe src="" frameborder="0"></iframe>
+    </div>
+</div>
