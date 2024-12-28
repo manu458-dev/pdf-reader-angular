@@ -1,15 +1,29 @@
-<input type="file" accept=".pdf" />
+<input (change)="pdfHasBeenUploaded($event)" type="file" accept=".pdf" />
 
 <div class="bg-slate-600 p-10 text-center text-white">
     <h1 class="font-bold text-2xl">
-        FILE UPLOADED
+        📕 SIMPLE ANGULAR UPLOAD/READ PDF 📕
     </h1>
 
-    <p *ngIf="base64PDF ==''">
-        Sube un fichero PDF
+    <p *ngIf="base64PDF ==''" class="text-red-400 font-bold">
+        ⚠️Upload a PDF File!!⚠️
     </p>
 
-    <div *ngIf="base64PDF == ''" class="">
-        <iframe #iframe src="" frameborder="0"></iframe>
+    <div class="relative mx-auto">
+        <div class="bg-black h-64">
+            <iframe #iframe class="w-full h-full" frameborder="0"></iframe>
+        </div>
     </div>
+
+    <button (click)="seeBase64()">
+        👉SEE BASE 64(console.log)
+    </button> <br>
+
+    <button *ngIf="pdfIsUploaded" (click)="parseB64toPDF()">
+        👉UPLOAD PDF to iframe
+    </button> <br>
+
+    <button *ngIf="pdfIsUploaded" (click)="clearPDF()">
+        👉Clear variables (data)
+    </button>
 </div>
